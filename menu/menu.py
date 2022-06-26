@@ -37,7 +37,7 @@ class Menu(commands.Cog):
                 await asyncio.sleep(0.3)
 
             try:
-                reaction, _ = await self.bot.wait_for('reaction_add', check=lambda r, u: r.message == main_recipient_msg and u == thread.recipient and str(r.emoji) in menu_config['options'], timeout=180)
+                reaction, _ = await self.bot.wait_for('reaction_add', check=lambda r, u: r.message == main_recipient_msg and u == thread.recipient and str(r.emoji) in menu_config['options'], timeout=10)
             except asyncio.TimeoutError:
                 message.content = 'No se ha recibido ninguna reacción. Su consulta se considerará como consulta general.'
                 await thread.reply(message)
